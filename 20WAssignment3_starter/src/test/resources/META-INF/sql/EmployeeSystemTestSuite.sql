@@ -1,0 +1,3 @@
+-- any sql that one wishes to be pre-loaded goes in here
+-- statements must be a single line without newlines
+-- INSERT INTO ADDRESS (ID, CITY, COUNTRY, POSTAL, STATE, STREET, VERSION) VALUES (1, 'Nepean', 'CA', 'K2X 5A1', 'ON', '20 Pinetrail Cress', 1)
