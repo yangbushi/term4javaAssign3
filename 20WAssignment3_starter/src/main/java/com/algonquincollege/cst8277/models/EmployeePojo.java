@@ -2,6 +2,7 @@
  * File: EmployeePojo.java
  * Course materials (20W) CST 8277
  * @author Mike Norman
+ * @author George Yang 040885396
  * (Modified) @date 2020 02
  *
  * Copyright (c) 1998, 2009 Oracle. All rights reserved.
@@ -49,15 +50,42 @@ public class EmployeePojo extends PojoBase implements Serializable {
     /** explicit set serialVersionUID */
     private static final long serialVersionUID = 1L;
 
+    /**
+     * firstName
+     */
     protected String firstName;
+    /**
+     * lastName
+     */
     protected String lastName;
+    /**
+     * email
+     */
     protected String email;
+    /**
+     * title
+     */
     protected String title;
+    /**
+     * salary
+     */
     protected Double salary;
     // TODO - additional properties for 1:1, 1:M, M:N
+    /**
+     * address
+     */
     protected AddressPojo address;
+    /**
+     * phones
+     */
     protected List<PhonePojo> phones;
+    /**
+     * projects
+     */
     protected Set<ProjectPojo> projects;
+    /**
+     * employeeTasks
+     */
     protected List<EmployeeTask> employeeTasks;
     
     // JPA requires each @Entity class have a default constructor
@@ -65,6 +93,10 @@ public class EmployeePojo extends PojoBase implements Serializable {
         super();
     }
     
+    /**
+     * 
+     * @return projects
+     */
     @ManyToMany
     @JoinTable(name="EMP_PROJ", 
     joinColumns=@JoinColumn(name="EMP_ID", referencedColumnName="EMP_ID"),
@@ -73,9 +105,18 @@ public class EmployeePojo extends PojoBase implements Serializable {
         return projects;
     }
 
+    /**
+     * 
+     * @param projects
+     */
     public void setProjects(Set<ProjectPojo> projects) {
         this.projects = projects;
     }
+    
+    /**
+     * 
+     * @return employeeTasks
+     */
     @ElementCollection
     @CollectionTable(
           name="EMPLOYEE_TASKS",
@@ -85,17 +126,28 @@ public class EmployeePojo extends PojoBase implements Serializable {
         return employeeTasks;
     }
 
+    /**
+     * 
+     * @param employeeTasks
+     */
     public void setEmployeeTasks(List<EmployeeTask> employeeTasks) {
         this.employeeTasks = employeeTasks;
     }
 
+    /**
+     * 
+     * @return phones
+     */
     @OneToMany(mappedBy = "owningEmployee", cascade = CascadeType.ALL,
             orphanRemoval = true)
     public List<PhonePojo> getPhones() {
         return phones;
     }
     
-
+    /**
+     * 
+     * @param phones
+     */
     public void setPhones(List<PhonePojo> phones) {
         this.phones = phones;
     }

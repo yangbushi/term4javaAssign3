@@ -2,7 +2,7 @@
  * File: PojoBase.java
  * Course materials (20W) CST 8277
  * @author Mike Norman
- *
+ * @author George Yang 040885396
  * @date 2020 02
  */
 package com.algonquincollege.cst8277.models;

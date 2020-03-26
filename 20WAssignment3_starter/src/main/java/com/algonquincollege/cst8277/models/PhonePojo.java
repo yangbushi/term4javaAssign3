@@ -2,6 +2,7 @@
  * File: PhonePojo.java
  * Course materials (20W) CST 8277
  * @author Mike Norman
+ * @author George Yang 040885396
  * (Modified) @date 2020 02
  *
  * Copyright (c) 1998, 2009 Oracle. All rights reserved.
@@ -38,13 +39,30 @@ import javax.persistence.Table;
 @AttributeOverride(name = "id", column = @Column(name="PHONE_ID"))
 @Inheritance(strategy=InheritanceType.JOINED)
 public abstract class PhonePojo extends PojoBase {
+    /**
+     * 
+     * PhoneType enum definition
+     *
+     */
     public enum PhoneType {
         H, W, M
     }
     // TODO - persistent properties
+    /**
+     * areaCode
+     */
     protected String areaCode;
+    /**
+     * phoneNumber
+     */
     protected String phoneNumber;
+    /**
+     * phoneType
+     */
     protected PhoneType phoneType;
+    /**
+     * owningEmployee
+     */
     protected EmployeePojo owningEmployee;
     
     // JPA requires each @Entity class have a default constructor
@@ -52,38 +70,70 @@ public abstract class PhonePojo extends PojoBase {
         super();
     }
 
+    /**
+     * 
+     * @return areaCode
+     */
     public String getAreaCode() {
         return areaCode;
     }
 
+    /**
+     * 
+     * @param areaCode
+     */
     public void setAreaCode(String areaCode) {
         this.areaCode = areaCode;
     }
 
+    /**
+     * 
+     * @return phoneNumber
+     */
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
+    /**
+     * 
+     * @param phoneNumber
+     */
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
+    /**
+     * 
+     * @return phoneType
+     */
     @Column(name = "PHONE_TYPE")
     @Enumerated(EnumType.STRING)
     public PhoneType getPhoneType() {
         return phoneType;
     }
 
+    /**
+     * 
+     * @param phoneType
+     */
     public void setPhoneType(PhoneType phoneType) {
         this.phoneType = phoneType;
     }
 
+    /**
+     * 
+     * @return owningEmployee
+     */
     @ManyToOne
     @JoinColumn(name = "OWNING_EMP_ID")
     public EmployeePojo getOwningEmployee() {
         return owningEmployee;
     }
 
+    /**
+     * 
+     * @param owningEmployee
+     */
     public void setOwningEmployee(EmployeePojo owningEmployee) {
         this.owningEmployee = owningEmployee;
     }

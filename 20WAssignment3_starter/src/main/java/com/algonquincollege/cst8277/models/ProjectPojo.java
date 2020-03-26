@@ -2,6 +2,7 @@
  * File: ProjectPojo.java
  * Course materials (20W) CST 8277
  * @author Mike Norman
+ * @author George Yang 040885396
  * (Modified) @date 2020 02
  *
  * Copyright (c) 1998, 2009 Oracle. All rights reserved.
@@ -37,34 +38,67 @@ public class ProjectPojo extends PojoBase implements Serializable {
     private static final long serialVersionUID = 1L;
 
     // TODO - persistent properties
+    /**
+     * description
+     */
     protected String description;
+    /**
+     * name
+     */
     protected String name;
+    /**
+     * employees
+     */
     protected Set<EmployeePojo> employees;
     
     // JPA requires each @Entity class have a default constructor
     public ProjectPojo() {
     }
     
+    /**
+     * 
+     * @return description
+     */
     public String getDescription() {
         return description;
     }
 
+    /**
+     * 
+     * @param description
+     */
     public void setDescription(String description) {
         this.description = description;
     }
 
+    /**
+     * 
+     * @return name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * 
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * 
+     * @return employees
+     */
     @ManyToMany(mappedBy="projects")
     public Set<EmployeePojo> getEmployees() {
         return employees;
     }
+    /**
+     * 
+     * @param employees
+     */
     public void setEmployees(Set<EmployeePojo> employees) {
         this.employees = employees;
     }

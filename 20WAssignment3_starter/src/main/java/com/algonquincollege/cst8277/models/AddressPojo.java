@@ -2,6 +2,7 @@
  * File: AddressPojo.java
  * Course materials (20W) CST 8277
  * @author Mike Norman
+ * @author George Yang 040885396
  * (Modified) @date 2020 02
  *
  * Copyright (c) 1998, 2009 Oracle. All rights reserved.
@@ -36,11 +37,26 @@ public class AddressPojo extends PojoBase implements Serializable {
     /** explicit set serialVersionUID */
     private static final long serialVersionUID = 1L;
 
+    /**
+     * the city
+     */
     protected String city;
     // TODO - additional properties needed to match ADDRESS table
+    /**
+     * the country
+     */
     protected String country;
+    /**
+     * the postal
+     */
     protected String postal;
+    /**
+     * the state
+     */
     protected String state;
+    /**
+     * the state
+     */
     protected String street;
     
     /**
@@ -50,41 +66,81 @@ public class AddressPojo extends PojoBase implements Serializable {
         super();
     }
 
+    /**
+     * 
+     * @return city
+     */
     public String getCity() {
         return city;
     }
+    /**
+     * 
+     * @param city
+     */
     public void setCity(String city) {
         this.city = city;
     }
 
+    /**
+     * 
+     * @return country
+     */
     public String getCountry() {
         return country;
     }
 
+    /**
+     * 
+     * @param country
+     */
     public void setCountry(String country) {
         this.country = country;
     }
 
+    /**
+     * 
+     * @return postal
+     */
     public String getPostal() {
         return postal;
     }
 
+    /**
+     * 
+     * @param postal
+     */
     public void setPostal(String postal) {
         this.postal = postal;
     }
 
+    /**
+     * 
+     * @return state
+     */
     public String getState() {
         return state;
     }
 
+    /**
+     * 
+     * @param state
+     */
     public void setState(String state) {
         this.state = state;
     }
 
+    /**
+     * 
+     * @return street
+     */
     public String getStreet() {
         return street;
     }
 
+    /**
+     * 
+     * @param street
+     */
     public void setStreet(String street) {
         this.street = street;
     }
